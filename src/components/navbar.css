@@ -1,0 +1,48 @@
+
+
+
+:root {
+
+    --nav : #1A242E;
+    --navcolor : #fff;
+}
+
+nav {
+
+    background-color: var(--nav);
+    color: var(--navcolor);
+    padding: 0.2rem;
+      
+}
+
+nav ul {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+
+nav ul li {
+      list-style: none;
+      cursor: pointer;
+}
+
+.avatar {
+
+       width: 30px;
+       height : 30px;
+       border-radius: 50%;
+       cursor: pointer;
+}
+
+.nav__input input {
+      outline : none;
+      border: none;
+      border-radius: 6px;
+      padding: 0.2rem;
+      
+}
+
