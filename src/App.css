@@ -12,3 +12,25 @@ h1, h2 , h3 , h4 {
 img {
   width: 100%;
 }
+
+@media only screen and (min-width : 760px){
+
+      body {
+           font-size: 1.2rem;
+      }
+}
+
+@media only screen and (min-width : 480px) and (min-width: 760px){
+
+     body {
+       font-size: 0.9rem;
+     }
+}
+
+@media screen and (max-width : 470px){
+  body {
+     font-size: 0.6rem;
+  }
+     
+  
+}
