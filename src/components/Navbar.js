@@ -1,16 +1,15 @@
 import React from "react";
-import './navbar.css'
+import "./navbar.css";
 
 const Navbar = () => {
   return (
     <nav>
       <ul>
         <li>Home</li>
-      
+
         <li>
           <div className="nav__input">
-            <input type='text' placeholder="search"/>
-           
+            <input type="text" placeholder="search" />
           </div>
         </li>
 

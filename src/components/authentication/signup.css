@@ -1,0 +1,58 @@
+
+
+
+
+
+
+:root {
+    --btn : #2827CC;
+    --text : #fff;
+    
+
+}
+
+/* Container */
+
+
+.signup__container {
+
+    background-image: url('../../../public/assets/images/IN-en-20220111-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+
+}
+
+
+.btn {
+     
+   position: relative;
+   margin-bottom: 10vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+     
+
+}
+
+.signup__btn {
+
+     background-color: var(--btn);
+     outline: none;
+     border: none;
+     color: var(--text);
+     border-radius: 3px;
+     padding: 1rem;
+     cursor: pointer;
+     text-align: center;
+    
+
+}
