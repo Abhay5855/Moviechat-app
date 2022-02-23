@@ -1,10 +1,10 @@
 
 import './App.css';
 import Signup from './components/authentication/Signup';
-import Navbar from './components/Navbar';
 import {BrowserRouter,
   Routes,
   Route,} from 'react-router-dom';
+import Container from './components/container/Container';
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
 
           
         <Route path='/' element={<Signup/>}></Route>
-          <Route path='/home' element={<Navbar />}></Route>
+          <Route path='/home' element={<Container/>}></Route>
 
         </Routes>
 
