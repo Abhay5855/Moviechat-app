@@ -1,8 +1,32 @@
 
 
+
+:root {
+      --arrows : #fff;
+}
+
+.slider__image {
+
+     width: 80%;
+     height: 300px;
+     border-radius: 4px;
+     object-fit: center;
+
+    
+}
+
 .slider__container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
 
-    display: flex;
-    align-items: center;
+}
 
+.slider__arrows  i{
+
+      color: var(--arrows);
+      font-size: 1.5rem;
+      cursor: pointer;
+      
 }

@@ -2,9 +2,15 @@
 
 
 :root {
-      --background : #334366;
+      --background : #1A242E;
 }
 
 body {
     background-color: var(--background);
+  
 }
+
+.container__block {
+      padding: 0.4rem;
+}
+
