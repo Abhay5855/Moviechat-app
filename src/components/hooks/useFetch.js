@@ -5,6 +5,7 @@
 
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+
 export const useFetch = (url) => {
 
      const [movies , setMovies ] = useState([]);
@@ -14,16 +15,15 @@ export const useFetch = (url) => {
 
      useEffect(() => {
 
-          function fetchData () {
+         async function fetchData () {
 
-                axios.get(url)
-                .then(() => {
-                      console.log('data')
-                })
-                .catch((err) => {
-                     setError(err);
-                     console.log(err);
-                })
+          const request = await axios.get(url);
+
+          // setMovies(request.data.results);
+    
+          console.log(request);
+
+          console.log(url);
 
 
 
@@ -34,7 +34,7 @@ export const useFetch = (url) => {
           fetchData();
 
 
-     }, [url , isLoading , error]);
+     }, [isLoading , error]);
 
      
      
