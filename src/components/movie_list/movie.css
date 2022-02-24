@@ -9,6 +9,11 @@
 .movies__list {
         
        display: flex;
+       align-items: center;
+       gap:0.7rem;
+       overflow-y: hidden;
+       overflow-x: scroll;
+
       
      
 }
@@ -16,4 +21,11 @@
 .movies__list img {
         width: 200px;
         height: 200px;
+        border-radius: 4px;
+        opacity: 0.9;
+        cursor: pointer;
 }
+
+.movies__list::-webkit-scrollbar {
+      display: none;
+    }

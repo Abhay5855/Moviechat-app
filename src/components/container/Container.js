@@ -17,7 +17,12 @@ const Container = () => {
 
          </div>
 
-         <Movie title='Trending'  trending={requests.fetchNetflixOriginals}/>
+         <div className="container__movies">
+           
+         <Movie title='Trending'  trending={requests.fetchTrending}/>
+
+           
+         </div>
 
          
         
