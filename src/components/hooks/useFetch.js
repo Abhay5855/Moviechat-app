@@ -17,11 +17,20 @@ export const useFetch = (url) => {
 
          function fetchData () {
 
-          const request = axios.get(url);
+          axios.get(url)
+          .then((response) => {
 
-          // setMovies(request.data.results);
+            setMovies(() => response && response.data && response.data.results ? response.data.results : '');
+            // console.log(response.data.results);
 
-          setMovies(() => request && request.data && request.data.results ? request.data.results : '');
+          })
+          .catch((err) => {
+
+                 setError(err);
+          })
+
+          
+
     
           }
           
