@@ -5,3 +5,15 @@
 .movie__desc {
       color: #fff;
 }
+
+.movies__list {
+        
+       display: flex;
+      
+     
+}
+
+.movies__list img {
+        width: 200px;
+        height: 200px;
+}
