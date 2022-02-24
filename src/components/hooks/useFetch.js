@@ -15,26 +15,21 @@ export const useFetch = (url) => {
 
      useEffect(() => {
 
-         async function fetchData () {
+         function fetchData () {
 
-          const request = await axios.get(url);
+          const request = axios.get(url);
 
           // setMovies(request.data.results);
+
+          setMovies(() => request && request.data && request.data.results ? request.data.results : '');
     
-          console.log(request);
-
-          console.log(url);
-
-
-
-
           }
           
 
           fetchData();
 
 
-     }, [isLoading , error]);
+     }, [isLoading , error, movies]);
 
      
      
