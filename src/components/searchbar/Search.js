@@ -1,11 +1,12 @@
 import React, { useState , useRef, useEffect} from "react";
 import axios from "axios";
 import './search.css'
+import { Link } from "react-router-dom";
 
 const Search = () => {
 
        const [searchMovie , setSearchMovie] = useState("");
-       const []
+       const [loading , setLoading] = useState(true);
 
         // Using the input ref
         const inputRef = useRef();
@@ -21,6 +22,7 @@ const Search = () => {
                 axios.get()
                 .then((response) => {
                     console.log(response);
+                    setLoading(false);
                 })
                 
                 .catch((err) => {
@@ -52,7 +54,18 @@ const Search = () => {
       <div className="nav__input">
        
           <input type="text" placeholder="search" ref={inputRef} value={searchMovie} onChange={(e) => setSearchMovie(e.target.value)}/>
-          <button className="search__btn" type='submit'>Search</button>
+          <Link to={{
+               pathname='/search',
+
+               state : {
+
+                   
+
+               },
+          }}>
+          <button className="search__btn">Search</button>
+          </Link>
+          
         
       </div>
     </>
