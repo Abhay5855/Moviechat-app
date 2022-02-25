@@ -5,6 +5,7 @@ import {BrowserRouter,
   Routes,
   Route,} from 'react-router-dom';
 import Container from './components/container/Container';
+import SearchPage from './components/searchPage/SearchPage';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           
         <Route path='/' element={<Signup/>}></Route>
           <Route path='/home' element={<Container/>}></Route>
+          <Route path='/search' element={<SearchPage/>}></Route>
 
         </Routes>
 

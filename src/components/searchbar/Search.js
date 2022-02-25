@@ -22,9 +22,10 @@ const Search = () => {
         axios
         .get(SearchURL + searchMovie)
         .then((response) => {
-          console.log(response.data.results);
-          setFetchedMovie(response && response.data && response.data.results);
+          // console.log(response.data.results);
+          setFetchedMovie(response && response.data && response.data.results ?  response.data.results : '');
           setLoading(false);
+          
         })
 
         .catch((err) => {
@@ -32,13 +33,15 @@ const Search = () => {
         });
          
 
-      }, 4000);
+      }, 500);
 
      return () => clearTimeout(unsubscribe);
           
 
      
   }, [searchMovie , inputRef]);
+
+  console.log(fetchedMovie , 'search');
 
   return (
     <>
@@ -51,14 +54,9 @@ const Search = () => {
           onChange={(e) => setSearchMovie(e.target.value)}
         />
         <Link
-          to={{
-            pathname: "/",
-
-            state: {
-              loading : loading,
-              movies : fetchedMovie,
-
-            },
+          to='/search'
+          state={{
+              value : fetchedMovie,
           }}
         >
           <button className="search__btn">Search</button>
