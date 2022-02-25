@@ -10,7 +10,7 @@ export const useFetch = (url) => {
 
      const [movies , setMovies ] = useState([]);
      const [isLoading , setIsLoading] = useState(true);
-     const [error , setError] = useState(false);
+     const [error , setError] = useState('');
 
 
      useEffect(() => {
@@ -38,7 +38,7 @@ export const useFetch = (url) => {
           fetchData();
 
 
-     }, [isLoading , error, movies]);
+     }, [isLoading , error, url]);
 
      
      
