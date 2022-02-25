@@ -9,7 +9,13 @@ const Navbar = () => {
 
         <li>
           <div className="nav__input">
-            <input type="text" placeholder="search" />
+             <form>
+
+             <input type="text" placeholder="search" />
+              <button className="search__btn">Search</button>
+
+             </form>
+           
           </div>
         </li>
 
@@ -26,7 +32,6 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <i class="fa-solid fa-magnifying-glass"></i>
     </nav>
   );
 };

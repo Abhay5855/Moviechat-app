@@ -1,62 +1,45 @@
-
-
-
-
 .movie__desc {
-      color: #fff;
+  color: #fff;
 }
 
 .movies__list {
-        
-       display: flex;
-       align-items: center;
-       gap:0.7rem;
-       overflow-y: hidden;
-       overflow-x: scroll;
-
-      
-     
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  overflow-y: hidden;
+  overflow-x: scroll;
 }
 
 .movies__list img {
-        width: 150px;
-        height: 150px;
-        border-radius: 4px;
-        opacity: 0.9;
-        cursor: pointer;
-        transition: 1s;
-
+  width: 150px;
+  height: 150px;
+  border-radius: 4px;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: 1s;
 }
 
 /* Hover */
 .movies__list img:hover {
-       
-         transform:scale(1.1);
-         z-index: 4;
-      
+  transform: scale(1.1);
+  z-index: 4;
 }
- 
 
 .movies__list::-webkit-scrollbar {
-      display: none;
-    }
-
-
-
-.movie__content p{
-
-       color: #fff;
-
-}
-
-.movie__container {
-   position: relative;
+  display: none;
 }
 
 .movie__content p {
-       position: absolute;
-       top: 50%;
+  color: #fff;
+}
+
+.movie__container {
+  position: relative;
+}
+
+.movie__content p {
+  position: absolute;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
