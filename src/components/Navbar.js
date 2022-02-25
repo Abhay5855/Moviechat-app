@@ -1,22 +1,17 @@
 import React from "react";
 import "./navbar.css";
+import Search from "./searchbar/Search";
 
 const Navbar = () => {
+
+    
   return (
     <nav>
       <ul>
         <li>Home</li>
 
         <li>
-          <div className="nav__input">
-             <form>
-
-             <input type="text" placeholder="search" />
-              <button className="search__btn">Search</button>
-
-             </form>
-           
-          </div>
+           <Search />
         </li>
 
         <li>Watchlist</li>
