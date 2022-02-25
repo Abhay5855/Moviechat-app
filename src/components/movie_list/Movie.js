@@ -18,9 +18,16 @@ const Movie = ({title , trending}) => {
       const displayMovies = movies.map((movie) => {
 
                   return (
-                       <div key={movie.id}>
+                       <div className='movie__container' key={movie.id} >
 
                          <img src={`${BASE_URL}${movie.backdrop_path}`} alt={`${movie.original_name}`}/>
+
+
+                           <div className='movie__content'>
+
+                               <p>{movie.title}</p>
+
+                           </div>
 
                        </div>
                   )
