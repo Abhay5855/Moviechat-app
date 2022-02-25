@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Search = () => {
   const [searchMovie, setSearchMovie] = useState("");
   const [loading, setLoading] = useState(true);
+  const [fetchedMovie , setFetchedMovie] = useState([]);
 
   // Using the input ref
   const inputRef = useRef();
@@ -21,7 +22,8 @@ const Search = () => {
         axios
         .get(SearchURL + searchMovie)
         .then((response) => {
-          console.log(response);
+          console.log(response.data.results);
+          setFetchedMovie(response && response.data && response.data.results);
           setLoading(false);
         })
 
@@ -52,7 +54,11 @@ const Search = () => {
           to={{
             pathname: "/",
 
-            state: {},
+            state: {
+              loading : loading,
+              movies : fetchedMovie,
+
+            },
           }}
         >
           <button className="search__btn">Search</button>
