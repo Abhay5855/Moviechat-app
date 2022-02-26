@@ -1,6 +1,7 @@
 import React from "react";
 import "./movie.css";
 import { useFetch } from "../hooks/useFetch";
+import {db} from '../../firebase/firebase'
 
 const Movie = ({ title, trending }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
