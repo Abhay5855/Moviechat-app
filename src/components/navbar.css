@@ -16,6 +16,10 @@ nav {
       
 }
 
+.watch_later {
+      list-style:none;
+      text-decoration: none;
+}
 nav ul {
 
     display: flex;

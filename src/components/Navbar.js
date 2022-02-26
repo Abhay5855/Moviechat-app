@@ -1,6 +1,7 @@
 import React from "react";
 import "./navbar.css";
 import Search from "./searchbar/Search";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -13,8 +14,11 @@ const Navbar = () => {
         <li>
            <Search />
         </li>
-
-        <li>Watchlist</li>
+        
+        <Link to='/watch-later' style={{textDecoration: 'none' , color : '#fff'}}>
+        <li className="watch_later">Watchlist</li>
+        </Link>
+        
 
         <li>
           <div>
