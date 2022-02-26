@@ -15,10 +15,13 @@ const Movie = ({ title, trending }) => {
         <img
           src={`${BASE_URL}${movie.backdrop_path}`}
           alt={`${movie.original_name}`}
+          loading='lazy'
         />
 
         <div className="movie__content">
-          <p>{movie.title}</p>
+          
+          <p>{movie.title || movie.original_name}</p>
+          <span><i class="fas fa-plus"></i></span>
         </div>
       </div>
     );
