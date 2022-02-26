@@ -10,6 +10,19 @@ const Movie = ({ title, trending }) => {
   // Display the movies
 
   const displayMovies = movies.map((movie) => {
+
+
+       const handleFavourite = (title , orginal , poster) => {
+
+            const data = {
+                  title,
+                  orginal,
+                  poster,
+            }
+
+             console.log(data);
+             
+       }
     return (
       <div className="movie__container" key={movie.id}>
         <img
@@ -21,7 +34,7 @@ const Movie = ({ title, trending }) => {
         <div className="movie__content">
           
           <p>{movie.title || movie.original_name}</p>
-          <span><i class="fas fa-plus"></i></span>
+          <span onClick={() => handleFavourite(movie.title , movie.original_name , movie.backdrop_path)}><i class="fas fa-plus"></i></span>
         </div>
       </div>
     );
