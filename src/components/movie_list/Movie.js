@@ -2,7 +2,7 @@ import React from "react";
 import "./movie.css";
 import { useFetch } from "../hooks/useFetch";
 import { db } from "../../firebase/firebase";
-import { useNavigate } from "react-router-dom";
+
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 
 const Movie = ({ title, trending }) => {
@@ -10,11 +10,10 @@ const Movie = ({ title, trending }) => {
 
   const { isLoading, error, movies } = useFetch(`${trending}`);
 
-  // Navigate using useNavigate
-  const navigate = useNavigate();
 
+  
   // Function to add the watch later movies
-  const handleFavourite = (title, original, photoURL) => {
+  const handleFavourite = (title, original, photoURL, overview) => {
     // conditional rendering to check whether title is present or not and appending the baseurl with the poster photo
     let selectTitle = title || original;
     let photo = BASE_URL + photoURL;
@@ -24,6 +23,7 @@ const Movie = ({ title, trending }) => {
       timestamp: serverTimestamp(),
       title: selectTitle,
       photoURL: photo,
+      overview : overview,
     })
       .then(() => {
         navigate("/watch-later");
@@ -51,7 +51,8 @@ const Movie = ({ title, trending }) => {
               handleFavourite(
                 movie.title,
                 movie.original_name,
-                movie.backdrop_path
+                movie.backdrop_path,
+                movie.overview,
               )
             }
           >
