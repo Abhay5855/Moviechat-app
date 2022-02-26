@@ -1,0 +1,22 @@
+
+
+
+.searchpage__container img {
+
+      border-radius: 5px;
+      width: 200px;
+      height: 150px;
+      box-shadow: 0 3px 10px rgba(245, 238, 238, 0.4);
+
+
+
+}
+
+.searchpage__container {
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap:1rem;
+      
+}
