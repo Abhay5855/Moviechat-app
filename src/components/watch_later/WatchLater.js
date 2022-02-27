@@ -1,31 +1,38 @@
 
 
 
-import { collection, getDocs } from 'firebase/firestore'
-import React, { useEffect } from 'react'
+import { collection, getDocs, onSnapshot, query, QuerySnapshot } from 'firebase/firestore'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar'
 import {db} from '../../firebase/firebase'
 import './watchlater.css'
 
 const WatchLater = () => {
 
+    //a state to store all the movies addedd by firebase in the watch-later section.
+
+    const [watchLater , setWatchLater] = useState([]);
+
       useEffect(() => {
 
-             async function fetchWatchLater (){
+            const movies = query(collection(db , 'watch-later'))
+            onSnapshot(movies , (QuerySnapshot) => {
+                 
+                 setWatchLater(QuerySnapshot.docs.map((doc) => ({
 
-                  await getDocs(collection(db , 'movies'))
-                  .then((snapshot) => snapshot.docs.map((doc) => 
-                        
-                          console.log(doc.title)
-                  ))
-                     
-              }
+                      id : doc.id,
+                      data : doc.data(),
+                 })))
+            })
 
-              fetchWatchLater();
-
+           
 
 
       },[])
+
+      console.log(watchLater , 'watchlater');
+
+      
   return (
     <div>
 

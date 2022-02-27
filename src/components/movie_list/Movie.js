@@ -3,48 +3,33 @@ import "./movie.css";
 import { useFetch } from "../hooks/useFetch";
 import { db } from "../../firebase/firebase";
 
-import { addDoc, collection, doc, serverTimestamp, setDoc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  setDoc,
+} from "firebase/firestore";
 
 const Movie = ({ title, trending }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
 
   const { isLoading, error, movies } = useFetch(`${trending}`);
 
-
-  
   // Function to add the watch later movies
   const handleFavourite = async (title, original, photoURL, overview) => {
     // conditional rendering to check whether title is present or not and appending the baseurl with the poster photo
     let selectTitle = title || original;
     let photo = BASE_URL + photoURL;
 
-    // const movies = {
-    //      timestamp : serverTimestamp(),
-    //      original : selectTitle,
-    //      photoURL : photo,
-    //      overview : overview,
-    // }
-
-    //  const addMovies = [];
-
-    //  addMovies.push([...movies]);
-
-    // Addding the data of watch-later movies to the firebase database
-   
-    await addDoc(collection(db , 'watch-later') , {
-
-          timestamp : serverTimestamp(),
-          original : selectTitle,
-          photoURL : photo,
-          overview : overview,
-
-    })
-    .catch((err) => {
-          console.log(err);
-    })
-
-
-
+    await addDoc(collection(db, "watch-later"), {
+      timestamp: serverTimestamp(),
+      original: selectTitle,
+      photoURL: photo,
+      overview: overview,
+    }).catch((err) => {
+      console.log(err);
+    });
   };
 
   // Display the movies
@@ -66,7 +51,7 @@ const Movie = ({ title, trending }) => {
                 movie.title,
                 movie.original_name,
                 movie.backdrop_path,
-                movie.overview,
+                movie.overview
               )
             }
           >
