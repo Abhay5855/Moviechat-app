@@ -21,7 +21,7 @@ export const useFetch = (url) => {
           .then((response) => {
 
             setMovies(() => response && response.data && response.data.results ? response.data.results : '');
-            console.log(response.data.results);
+            // console.log(response.data.results);
 
           })
           .catch((err) => {

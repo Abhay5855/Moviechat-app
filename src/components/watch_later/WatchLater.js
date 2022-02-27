@@ -19,6 +19,8 @@ const WatchLater = () => {
         }))
       );
     });
+
+    return () => movies;
   }, []);
     
 
