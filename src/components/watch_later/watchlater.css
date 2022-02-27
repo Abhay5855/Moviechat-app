@@ -1,0 +1,17 @@
+
+
+:root {
+      --color: #fff;
+}
+
+.watchlist__container {
+      padding: 1rem;
+}
+
+
+.watchlist {
+
+      color: var(--color);
+      
+      
+}
