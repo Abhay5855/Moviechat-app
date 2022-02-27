@@ -20,8 +20,8 @@ const WatchLater = () => {
       );
     });
   }, []);
+    
 
-  console.log(watchLater);
 
   //delete from the watchlist
   const handleRemove = async (id) => {
@@ -29,7 +29,7 @@ const WatchLater = () => {
     try {
       await deleteDoc(movieDocRef);
     } catch (err) {
-      console.log(err);
+          alert(err);
     }
   };
 
@@ -55,6 +55,14 @@ const WatchLater = () => {
       </div>
     );
   });
+   
+  // If no movie is in the list
+    let noMovie = null;
+    if(watchLater.length <= 0){
+        noMovie = (
+          <h2 style={{textAlign : 'center' , color : '#fff'}}>SORRY NO MOVIE FOUND, ADD MOVIES TO WATCH LATER.</h2>
+        )
+    }
 
   return (
     <div>
@@ -62,6 +70,8 @@ const WatchLater = () => {
       <div className="watchlist__container">
         <h2 className="watchlist">Watchlist</h2>
       </div>
+
+      {noMovie}
 
       <div className="watchlist__movies">{displayWatchlater}</div>
     </div>
