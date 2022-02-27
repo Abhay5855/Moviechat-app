@@ -13,7 +13,7 @@ const Container = () => {
          
          <div className="container__block">
 
-         <Slider />
+         <Slider trending={requests.fetchTrending}/>
 
          </div>
 

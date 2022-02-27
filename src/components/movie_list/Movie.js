@@ -6,9 +6,8 @@ import { db } from "../../firebase/firebase";
 import {
   addDoc,
   collection,
-  doc,
   serverTimestamp,
-  setDoc,
+  
 } from "firebase/firestore";
 
 const Movie = ({ title, trending }) => {
@@ -28,7 +27,7 @@ const Movie = ({ title, trending }) => {
       photoURL: photo,
       overview: overview,
     }).catch((err) => {
-      console.log(err);
+      // console.log(err);
     });
   };
 
