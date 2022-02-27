@@ -1,10 +1,4 @@
-import {
-  collection,
-  getDocs,
-  onSnapshot,
-  query,
-  QuerySnapshot,
-} from "firebase/firestore";
+import { collection, deleteDoc, onSnapshot, query, doc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
 import { db } from "../../firebase/firebase";
@@ -29,22 +23,37 @@ const WatchLater = () => {
 
   console.log(watchLater);
 
+  //delete from the watchlist
+  const handleRemove = async (id) => {
+    const movieDocRef = doc(db, "watch-later", id);
+    try {
+      await deleteDoc(movieDocRef);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   // Display the watch later movies
   const displayWatchlater = watchLater.map((movie) => {
-    return <div key={movie.id} className="watchlater__container">
+    return (
+      <div key={movie.id} className="watchlater__container">
+        <img
+          src={movie.data.photoURL}
+          alt={movie.data.original}
+          loading="lazy"
+        />
 
-        
-          <img src={movie.data.photoURL}  alt={movie.data.original} loading='lazy'/>
-        
         <div>
           <p className="title">{movie.data.original}</p>
           <p className="overview">overview : {movie.data.overview}</p>
-          <span className="remove"><i class="fas fa-trash"></i> Remove from watchlist</span>
+          <div onClick={() => handleRemove(movie.id)}>
+            <span className="remove">
+              <i class="fas fa-trash"></i> Remove from watchlist
+            </span>
+          </div>
         </div>
-        
-          
-
-    </div>;
+      </div>
+    );
   });
 
   return (
@@ -54,9 +63,7 @@ const WatchLater = () => {
         <h2 className="watchlist">Watchlist</h2>
       </div>
 
-        <div className="watchlist__movies">
-          {displayWatchlater}
-        </div>
+      <div className="watchlist__movies">{displayWatchlater}</div>
     </div>
   );
 };
