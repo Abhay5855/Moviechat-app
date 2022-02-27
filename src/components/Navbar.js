@@ -9,7 +9,10 @@ const Navbar = () => {
   return (
     <nav>
       <ul>
+        <Link to='/home' style={{textDecoration: 'none' , color : '#fff'}}>
         <li>Home</li>
+        </Link>
+       
 
         <li>
            <Search />

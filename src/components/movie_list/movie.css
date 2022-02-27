@@ -6,6 +6,8 @@
 
 .movie__desc {
   color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
 }
 
 .movies__list {
@@ -14,6 +16,7 @@
   gap: 0.7rem;
   overflow-y: hidden;
   overflow-x: scroll;
+  margin-bottom: 0.4rem;
 }
 
 .movies__list img {
