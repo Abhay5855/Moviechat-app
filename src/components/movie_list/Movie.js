@@ -45,8 +45,9 @@ const Movie = ({ title, trending }) => {
         />
 
         <div className="movie__content">
-          <p>{movie.title || movie.original_name}</p>
+          <p className="movie__title">{movie.title || movie.original_name}</p>
           <span
+            className="watchlist"
             onClick={() =>
               handleFavourite(
                 movie.id,
@@ -57,8 +58,11 @@ const Movie = ({ title, trending }) => {
               )
             }
           >
+            
             <i class="fas fa-plus"></i>
+            Add to Watchlist
           </span>
+          <p className="watchlist"><i class="fab fa-youtube"></i> Watch Trailer</p>
         </div>
       </div>
     );

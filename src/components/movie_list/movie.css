@@ -48,13 +48,13 @@
 .movie__content span {
   position: absolute;
   cursor: pointer;
-  bottom: 5%;
+  bottom: 12%;
   left:2%;
   /* transform: translate(-50%, -50%); */
 }
 
 
-.movie__content p {
+.movie__title {
 
   position: absolute;
   bottom: 0;
@@ -67,4 +67,14 @@
 
 .fas , .fa-plus {
       color: var(--text);
+      font-size: 0.6rem;
+}
+
+.watchlist {
+     color: var(--text);
+     font-size: 0.6rem;
+     position: absolute;
+     cursor: pointer;
+     bottom: 3%;
+     left:2%;
 }
