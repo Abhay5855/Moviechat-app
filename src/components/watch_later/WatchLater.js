@@ -1,4 +1,10 @@
-import { collection, deleteDoc, onSnapshot, query, doc } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  onSnapshot,
+  query,
+  doc,
+} from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
 import { db } from "../../firebase/firebase";
@@ -10,20 +16,22 @@ const WatchLater = () => {
   const [watchLater, setWatchLater] = useState([]);
 
   useEffect(() => {
-    const movies = query(collection(db, "watch-later"));
-    onSnapshot(movies, (QuerySnapshot) => {
-      setWatchLater(
-        QuerySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      );
-    });
+    function getWatchLater() {
+      const movies = query(collection(db, "watch-later"));
+      onSnapshot(movies, (QuerySnapshot) => {
+        setWatchLater(
+          QuerySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        );
+      });
+    }
 
-    return () => movies;
-  }, []);
-    
+      getWatchLater();
 
+    return () => watchLater;
+  }, [watchLater]);
 
   //delete from the watchlist
   const handleRemove = async (id) => {
@@ -31,7 +39,7 @@ const WatchLater = () => {
     try {
       await deleteDoc(movieDocRef);
     } catch (err) {
-          alert(err);
+      alert(err);
     }
   };
 
@@ -57,14 +65,16 @@ const WatchLater = () => {
       </div>
     );
   });
-   
+
   // If no movie is in the list
-    let noMovie = null;
-    if(watchLater.length <= 0){
-        noMovie = (
-          <h2 style={{textAlign : 'center' , color : '#fff'}}>SORRY NO MOVIE FOUND, ADD MOVIES TO WATCH LATER.</h2>
-        )
-    }
+  let noMovie = null;
+  if (watchLater.length <= 0) {
+    noMovie = (
+      <h2 style={{ textAlign: "center", color: "#fff" }}>
+        SORRY NO MOVIE FOUND, ADD MOVIES TO WATCH LATER.
+      </h2>
+    );
+  }
 
   return (
     <div>
@@ -78,6 +88,6 @@ const WatchLater = () => {
       <div className="watchlist__movies">{displayWatchlater}</div>
     </div>
   );
-};s
+};
 
 export default WatchLater;
