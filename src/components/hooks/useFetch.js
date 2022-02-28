@@ -37,6 +37,8 @@ export const useFetch = (url) => {
 
           fetchData();
 
+          return () => movies;
+
 
      }, [isLoading , error, url]);
 

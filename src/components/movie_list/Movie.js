@@ -1,41 +1,36 @@
 import React from "react";
 import "./movie.css";
-import { useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 import { db } from "../../firebase/firebase";
 
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  serverTimestamp,
+  
+} from "firebase/firestore";
 
 const Movie = ({ title, trending }) => {
-  //State to check wether the movie is addded or not
-  const [isAdded, setIsAdded] = useState(false);
-
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
 
   const { isLoading, error, movies } = useFetch(`${trending}`);
 
   // Function to add the watch later movies
-  const handleFavourite = async (id, title, original, photoURL, overview) => {
+  const handleFavourite = async (id ,title, original, photoURL, overview) => {
     // conditional rendering to check whether title is present or not and appending the baseurl with the poster photo
     let selectTitle = title || original;
     let photo = BASE_URL + photoURL;
 
     await addDoc(collection(db, "watch-later"), {
-      id: id,
+      id : id,
       timestamp: serverTimestamp(),
       original: selectTitle,
       photoURL: photo,
       overview: overview,
     })
-      .then((res) => {
-
-           console.log(res , 'firebase-res');
-        
-      })
-
-      .catch((err) => {
-        // console.log(err);
-      });
+    .catch((err) => {
+      // console.log(err);
+    });
   };
 
   // Display the movies
@@ -51,26 +46,19 @@ const Movie = ({ title, trending }) => {
 
         <div className="movie__content">
           <p>{movie.title || movie.original_name}</p>
-
-          {isAdded ? (
-            <span className="remove">
-              <i class="fas fa-trash"></i> Remove from watchlist
-            </span>
-          ) : (
-            <span
-              onClick={() =>
-                handleFavourite(
-                  movie.id,
-                  movie.title,
-                  movie.original_name,
-                  movie.backdrop_path,
-                  movie.overview
-                )
-              }
-            >
-              <i class="fas fa-plus"></i>
-            </span>
-          )}
+          <span
+            onClick={() =>
+              handleFavourite(
+                movie.id,
+                movie.title,
+                movie.original_name,
+                movie.backdrop_path,
+                movie.overview
+              )
+            }
+          >
+            <i class="fas fa-plus"></i>
+          </span>
         </div>
       </div>
     );
