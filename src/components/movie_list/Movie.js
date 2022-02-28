@@ -2,13 +2,9 @@ import React from "react";
 import "./movie.css";
 import { useFetch } from "../hooks/useFetch";
 import { db } from "../../firebase/firebase";
+import YouTube from "react-youtube";
 
-import {
-  addDoc,
-  collection,
-  serverTimestamp,
-  
-} from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const Movie = ({ title, trending }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
@@ -16,19 +12,18 @@ const Movie = ({ title, trending }) => {
   const { isLoading, error, movies } = useFetch(`${trending}`);
 
   // Function to add the watch later movies
-  const handleFavourite = async (id ,title, original, photoURL, overview) => {
+  const handleFavourite = async (id, title, original, photoURL, overview) => {
     // conditional rendering to check whether title is present or not and appending the baseurl with the poster photo
     let selectTitle = title || original;
     let photo = BASE_URL + photoURL;
 
     await addDoc(collection(db, "watch-later"), {
-      id : id,
+      id: id,
       timestamp: serverTimestamp(),
       original: selectTitle,
       photoURL: photo,
       overview: overview,
-    })
-    .catch((err) => {
+    }).catch((err) => {
       // console.log(err);
     });
   };
@@ -37,36 +32,47 @@ const Movie = ({ title, trending }) => {
 
   const displayMovies = movies.map((movie) => {
     return (
-      <div className="movie__container" key={movie.id}>
-        <img
-          src={`${BASE_URL}${movie.backdrop_path}`}
-          alt={`${movie.original_name}`}
-          loading="lazy"
-        />
+      <>
+        <div className="movie__container" key={movie.id}>
+          <img
+            src={`${BASE_URL}${movie.backdrop_path}`}
+            alt={`${movie.original_name}`}
+            loading="lazy"
+          />
 
-        <div className="movie__content">
-          <p className="movie__title">{movie.title || movie.original_name}</p>
-          <span
-            className="watchlist"
-            onClick={() =>
-              handleFavourite(
-                movie.id,
-                movie.title,
-                movie.original_name,
-                movie.backdrop_path,
-                movie.overview
-              )
-            }
-          >
-            
-            <i class="fas fa-plus"></i>
-            Add to Watchlist
-          </span>
-          <p className="watchlist"><i class="fab fa-youtube"></i> Watch Trailer</p>
+          <div className="movie__content">
+            <p className="movie__title">{movie.title || movie.original_name}</p>
+            <span
+              className="watchlist"
+              onClick={() =>
+                handleFavourite(
+                  movie.id,
+                  movie.title,
+                  movie.original_name,
+                  movie.backdrop_path,
+                  movie.overview
+                )
+              }
+            >
+              <i class="fas fa-plus"></i>
+              Add to Watchlist
+            </span>
+            <p className="watchlist" onClick={() => handleTrailer(movie)}>
+              <i class="fab fa-youtube"></i> Watch Trailer
+            </p>
+          </div>
         </div>
-      </div>
+
+        <YouTube />
+      </>
     );
   });
+
+  //function to handle trailers 
+  const handleTrailer = (movie) => {
+       
+          
+  }
 
   return (
     <div>
