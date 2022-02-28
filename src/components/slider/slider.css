@@ -10,8 +10,8 @@
      width: 95%;
      height: 300px;
      border-radius: 4px;
-     object-fit: center;
-     box-shadow: 0 3px 10px rgba(245, 238, 238, 0.6);
+     object-fit: cover;
+  
 
     
 }
