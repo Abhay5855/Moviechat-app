@@ -78,6 +78,6 @@ const WatchLater = () => {
       <div className="watchlist__movies">{displayWatchlater}</div>
     </div>
   );
-};
+};s
 
 export default WatchLater;

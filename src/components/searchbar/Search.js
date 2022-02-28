@@ -41,7 +41,7 @@ const Search = () => {
      
   }, [searchMovie , inputRef]);
 
-  console.log(fetchedMovie , 'search');
+  
 
   return (
     <>

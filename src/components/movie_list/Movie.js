@@ -16,12 +16,13 @@ const Movie = ({ title, trending }) => {
   const { isLoading, error, movies } = useFetch(`${trending}`);
 
   // Function to add the watch later movies
-  const handleFavourite = async (title, original, photoURL, overview) => {
+  const handleFavourite = async (id ,title, original, photoURL, overview) => {
     // conditional rendering to check whether title is present or not and appending the baseurl with the poster photo
     let selectTitle = title || original;
     let photo = BASE_URL + photoURL;
 
     await addDoc(collection(db, "watch-later"), {
+      id : id,
       timestamp: serverTimestamp(),
       original: selectTitle,
       photoURL: photo,
@@ -47,6 +48,7 @@ const Movie = ({ title, trending }) => {
           <span
             onClick={() =>
               handleFavourite(
+                movie.id,
                 movie.title,
                 movie.original_name,
                 movie.backdrop_path,
