@@ -15,31 +15,38 @@ const Search = () => {
     "https://api.themoviedb.org/3/search/movie?api_key=d97b3e0257a2c71f178ef69c4ca4f27c&query=";
 
   useEffect(() => {
-    
+       if(searchMovie !== ""){
 
-      const unsubscribe = setTimeout(() => {
+        const unsubscribe = setTimeout(() => {
 
-        axios
-        .get(SearchURL + searchMovie)
-        .then((response) => {
-          // console.log(response.data.results);
-          setFetchedMovie(response && response.data && response.data.results ?  response.data.results : '');
-          setLoading(false);
-          
-        })
+          axios
+          .get(SearchURL + searchMovie)
+          .then((response) => {
+            // console.log(response.data.results);
+            setFetchedMovie(response && response.data && response.data.results ?  response.data.results : '');
+            setLoading(false);
+            
+          })
+  
+          .catch((err) => {
+            console.log(err);
+          });
+           
+  
+        }, 500);
 
-        .catch((err) => {
-          console.log(err);
-        });
-         
+        return () => clearTimeout(unsubscribe);
 
-      }, 500);
+       }
 
-     return () => clearTimeout(unsubscribe);
+      
+
+     
           
 
      
   }, [searchMovie , inputRef]);
+
 
   
 

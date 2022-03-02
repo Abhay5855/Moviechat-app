@@ -16,7 +16,7 @@ const SearchPage = () => {
 
   const diplaySearch = value.map((movie) => {
     return (
-      <div>
+      <div key={movie.id}>
         <img
           src={`${BASE_URL}${movie?.poster_path}`}
           alt={movie.name}

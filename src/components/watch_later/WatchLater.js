@@ -32,6 +32,7 @@ const WatchLater = () => {
 
     return () => watchLater;
   }, []);
+
   
 
   //delete from the watchlist
@@ -81,7 +82,7 @@ const WatchLater = () => {
     <div>
       <Navbar />
       <div className="watchlist__container">
-        <h2 className="watchlist">Watchlist</h2>
+       
       </div>
 
       {noMovie}
