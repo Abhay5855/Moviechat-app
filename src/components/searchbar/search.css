@@ -21,3 +21,32 @@
    border-bottom-right-radius: 4px;
   
 }
+
+
+@media  screen and (max-width : 550px){
+
+     
+
+    .nav__input input {
+     
+        padding: 0.1rem;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+        
+    }
+    
+    
+    .search__btn {
+        
+       padding: 0.1rem;
+       outline: none;
+       border: none;
+       cursor: pointer;
+       border-top-right-radius: 2px;
+       border-bottom-right-radius: 2px;
+      
+    }
+    
+
+      
+}

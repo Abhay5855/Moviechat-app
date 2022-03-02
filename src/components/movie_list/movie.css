@@ -78,3 +78,13 @@
      bottom: 3%;
      left:2%;
 }
+
+.delete {
+     color: red;
+     font-size: 0.6rem;
+     position: absolute;
+}
+
+.delete > i {
+        color: red;
+}

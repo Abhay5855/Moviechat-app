@@ -66,3 +66,68 @@ font-size: 1.4rem;
 
 }
 
+
+
+@media screen and (max-width : 375px){
+
+      
+
+
+.watchlist {
+
+      color: var(--color);
+      text-align: center;
+
+}
+
+.watchlater__container {
+
+       display: flex;
+       flex-direction: column;
+   
+     
+       margin: 0.5rem;
+       align-items: center;
+       border-radius: 6px;
+       box-shadow: 0 3px 10px rgba(245, 238, 238, 0.6);
+       width: 80%;
+
+
+
+}
+
+.watchlist__movies {
+        padding: 0px 10rem 0px 10rem;
+
+}
+
+
+
+
+.title {
+text-align: center;
+color: var(--color);
+font-size: 0.5rem;
+}
+
+.overview {
+        color: var(--color);
+        font-size: 0.3rem;
+        padding:0.2rem;
+}
+
+.remove {
+      font-size: 0.2rem; 
+      padding: 0.2rem;
+      cursor:pointer;
+      color: var(--delete);
+}
+
+.remove i {
+        font-size: 0.3rem;
+        color: var(--delete);
+
+}
+
+        
+}

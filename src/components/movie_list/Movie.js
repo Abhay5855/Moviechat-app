@@ -21,11 +21,6 @@ const Movie = ({ title, trending }) => {
 
     // Check for the id
     // const findMovie = movie.filter((o) => o.id !== watchedId.id);
-    if (movieId.length !== 0) {
-      const val = movieId.find((o) => o.id !== movie.id);
-
-      console.log(val, "val");
-    }
 
     await addDoc(collection(db, "watch-later"), {
       id: movie.id,
@@ -51,7 +46,6 @@ const Movie = ({ title, trending }) => {
       onSnapshot(movies, (QuerySnapshot) => {
         setMovieId(
           QuerySnapshot.docs.map((doc) => ({
-            id: doc.id,
             data: doc.data(),
           }))
         );
@@ -61,7 +55,8 @@ const Movie = ({ title, trending }) => {
     getWatchLater();
   }, []);
 
-  // console.log('watch' , movieId);
+  // console.log(movieId);
+  // console.log(movieId);
 
   // Display the movies
 
@@ -77,18 +72,21 @@ const Movie = ({ title, trending }) => {
 
           <div className="movie__content">
             <p className="movie__title">{movie.title || movie.original_name}</p>
+
             {
-
-              movieId.find((o) => o.id === movie.id)  ?  <span className="watchlist" onClick={() => handleFavourite(movie)}>
-              <i class="fas fa-plus"></i>
-              Add to Watchlist
-            </span>  :  <span className="watchlist" onClick={() => handleFavourite(movie)}>
-            <i class="fas fa-trash"></i>
-              Remove from Watchlist
-            </span>
-
-            }
-            
+            !movieId.find((item) => item.data.id == movie.id) ? (
+              <span
+                className="watchlist"
+                onClick={() => handleFavourite(movie)}
+              >
+                <i class="fas fa-plus"></i>
+                Add to Watchlist
+              </span>
+            ) : (
+              <span className="delete">
+                <i class="fas fa-trash"></i> Remove from watchlist
+              </span>
+            )}
 
             <p className="watchlist">
               <i class="fab fa-youtube"></i> Watch Trailer

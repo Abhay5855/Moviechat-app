@@ -4,24 +4,27 @@ import Search from "./searchbar/Search";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-
-    
   return (
     <nav>
       <ul>
-        <Link to='/home' style={{textDecoration: 'none' , color : '#fff'}}>
-        <li>Home</li>
+        <Link to="/home" style={{ textDecoration: "none", color: "#fff" }}>
+          <li>
+            <p>Home</p>
+          </li>
         </Link>
-       
 
         <li>
-           <Search />
+          <Search />
         </li>
-        
-        <Link to='/watch-later' style={{textDecoration: 'none' , color : '#fff'}}>
-        <li className="watch_later">Watchlist</li>
+
+        <Link
+          to="/watch-later"
+          style={{ textDecoration: "none", color: "#fff" }}
+        >
+          <li className="watch_later">
+            <p>Watchlist</p>
+          </li>
         </Link>
-        
 
         <li>
           <div>
@@ -33,7 +36,6 @@ const Navbar = () => {
           </div>
         </li>
       </ul>
-
     </nav>
   );
 };
