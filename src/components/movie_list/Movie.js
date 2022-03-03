@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./movie.css";
 import { useFetch } from "../hooks/useFetch";
 import { db } from "../../firebase/firebase";
-import { QuerySnapshot, query, onSnapshot } from "firebase/firestore";
+import { query, onSnapshot } from "firebase/firestore";
+
 
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
@@ -92,6 +93,8 @@ const Movie = ({ title, trending }) => {
               <i class="fab fa-youtube"></i> Watch Trailer
             </p>
           </div>
+
+      
         </div>
       </>
     );
