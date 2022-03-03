@@ -40,11 +40,13 @@ const Search = () => {
 
       
 
-     
+       setSearchMovie("");
           
 
      
   }, [searchMovie , inputRef]);
+
+  
 
 
   
@@ -63,9 +65,10 @@ const Search = () => {
           to='/search'
           state={{
               value : fetchedMovie,
+              
           }}
         >
-          <button className="search__btn">Search</button>
+          <button className="search__btn" onClick={() => setSearchMovie("")}>Search</button>
         </Link>
       </div>
     </>

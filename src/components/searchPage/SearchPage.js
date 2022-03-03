@@ -6,6 +6,7 @@ import "./searchpage.css";
 const SearchPage = () => {
   const location = useLocation();
   const value = location.state.value;
+
   let noMovies = null;
 
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
@@ -17,18 +18,22 @@ const SearchPage = () => {
   const diplaySearch = value.map((movie) => {
     return (
       <div key={movie.id}>
-        <img
-          src={`${BASE_URL}${movie?.poster_path}`}
-          alt={movie.name}
-          loading="lazy"
-        />
+        {movie.poster_path === null ? (
+          ""
+        ) : (
+          <img
+            src={`${BASE_URL}${movie?.poster_path}`}
+            alt={movie.name}
+            loading="lazy"
+          />
+        )}
       </div>
     );
   });
 
   return (
     <>
-       <Navbar />
+      <Navbar />
       {noMovies}
       <div className="searchpage__container">{diplaySearch}</div>
     </>
