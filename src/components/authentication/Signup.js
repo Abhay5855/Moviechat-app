@@ -5,16 +5,15 @@ const Signup = () => {
   return (
     <div className="signup__container">
       <div className="btn">
-       
-          <form  className="input__data">
-            <h2>Sign In</h2>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button className="submit" type="submit">Sign In</button>
 
-            <p className="not__account">Don't have a account? <span className="signup">Signup</span></p>
-          </form>
-        
+        <h2 className="info">Unlimited movies, and have discussions about movies, Tv shows all at one place, Signup to enjoy!</h2>
+       
+        <div class="google-btn">
+  <div class="google-icon-wrapper">
+    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+  </div>
+  <p class="btn-text"><b>Sign in with google</b></p>
+</div>
       </div>
     </div> 
   );
