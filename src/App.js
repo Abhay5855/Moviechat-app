@@ -4,12 +4,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Container from "./components/container/Container";
 import SearchPage from "./components/searchPage/SearchPage";
 import WatchLater from "./components/watch_later/WatchLater";
-import {useAuthContextProvider} from './components/hooks/useAuth';
+import {UseAuthContextProvider} from './components/hooks/useAuth';
 
 function App() {
   return (
     <div className="App">
-      <useAuthContextProvider>
+      <UseAuthContextProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Signup />}></Route>
@@ -19,7 +19,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      </useAuthContextProvider>
+      </UseAuthContextProvider>
     </div>
     
   );
