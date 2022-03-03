@@ -28,12 +28,10 @@ const WatchLater = () => {
       });
     }
 
-      getWatchLater();
+    getWatchLater();
 
     return () => watchLater;
   }, []);
-
-  
 
   //delete from the watchlist
   const handleRemove = async (id) => {
@@ -81,9 +79,7 @@ const WatchLater = () => {
   return (
     <div>
       <Navbar />
-      <div className="watchlist__container">
-       
-      </div>
+      <div className="watchlist__container"></div>
 
       {noMovie}
 

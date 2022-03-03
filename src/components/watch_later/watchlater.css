@@ -1,106 +1,74 @@
-
-
 :root {
-      --color: #fff;
-      --delete : red;
+  --color: #fff;
+  --delete: red;
 }
 
 .watchlist__container {
-      padding: 1rem;
+  padding: 1rem;
 }
 
-
 .watchlist {
-
-      color: var(--color);
-      text-align: center;
-
+  color: var(--color);
+  text-align: center;
 }
 
 .watchlater__container {
+  display: flex;
+  flex-direction: column;
 
-       display: flex;
-       flex-direction: column;
-   
-     
-       margin: 1rem;
-       align-items: center;
-       border-radius: 6px;
-       box-shadow: 0 3px 10px rgba(245, 238, 238, 0.6);
-       /* width: 80%; */
-
-
-
+  margin: 1rem;
+  align-items: center;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(245, 238, 238, 0.6);
+  /* width: 80%; */
 }
 
 .watchlist__movies {
-        padding: 0px 10rem 0px 10rem;
-
+  padding: 0px 10rem 0px 10rem;
 }
 
-
-
-
 .title {
-text-align: center;
-color: var(--color);
-font-size: 1.4rem;
+  text-align: center;
+  color: var(--color);
+  font-size: 1.4rem;
 }
 
 .overview {
-        color: var(--color);
-        font-size: 0.6rem;
-        padding:0.5rem;
+  color: var(--color);
+  font-size: 0.6rem;
+  padding: 0.5rem;
 }
 
 .remove {
-      font-size: 0.6rem; 
-      padding: 0.5rem;
-      cursor:pointer;
-      color: var(--delete);
+  font-size: 0.6rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--delete);
 }
 
 .remove i {
-        font-size: 0.6rem;
-        color: var(--delete);
-
+  font-size: 0.6rem;
+  color: var(--delete);
 }
 
-
-
-@media screen and (max-width : 375px){
-
-      
-
-
-
-
-
-
-
-
-
-.title {
+@media screen and (max-width: 375px) {
+  .title {
     display: hidden;
-}
+  }
 
-.overview {
-       
-        display: hidden;
-}
+  .overview {
+    display: hidden;
+  }
 
-.remove {
-      font-size: 0.2rem; 
-      padding: 0.2rem;
-      cursor:pointer;
-      color: var(--delete);
-}
+  .remove {
+    font-size: 0.2rem;
+    padding: 0.2rem;
+    cursor: pointer;
+    color: var(--delete);
+  }
 
-.remove i {
-        font-size: 0.3rem;
-        color: var(--delete);
-
-}
-
-        
+  .remove i {
+    font-size: 0.3rem;
+    color: var(--delete);
+  }
 }

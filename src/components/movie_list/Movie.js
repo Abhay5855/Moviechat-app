@@ -56,8 +56,7 @@ const Movie = ({ title, trending }) => {
     getWatchLater();
   }, []);
 
-  // console.log(movieId);
-  // console.log(movieId);
+
 
   // Display the movies
 
@@ -100,7 +99,6 @@ const Movie = ({ title, trending }) => {
     );
   });
 
-  //function to handle trailers
 
   return (
     <div>
