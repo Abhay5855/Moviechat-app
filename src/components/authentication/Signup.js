@@ -1,7 +1,29 @@
 import React from "react";
 import "./signup.css";
+import GoogleButton from "react-google-button";
+import { useAuth } from "../hooks/useAuth";
+import { Navigate, useNavigate } from "react-router-dom";
+
+
 
 const Signup = () => {
+  const { GoogleSignIn } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    try {
+      await GoogleSignIn();
+    } catch (err) {
+      console.log(console.log(err));
+    }
+
+    navigate('/home');
+
+    
+  };
+
   return (
     <div className="signup__container">
       <div className="btn">
@@ -9,17 +31,9 @@ const Signup = () => {
           Unlimited movies, and have discussions about movies, Tv shows all at
           one place, Signup to enjoy!
         </h2>
-
-        <div class="google-btn">
-          <div class="google-icon-wrapper">
-            <img
-              class="google-icon"
-              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-            />
-          </div>
-          <p class="btn-text">
-            <b>Sign in with google</b>
-          </p>
+        
+        <div className="google-btn">
+          <GoogleButton onClick={(e) => handleSignup(e)} />
         </div>
       </div>
     </div>
