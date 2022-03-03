@@ -12,7 +12,7 @@ const SearchPage = () => {
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
 
   if (value.length <= 0) {
-    noMovies = <h2>Sorry, No movies found</h2>;
+    noMovies = <h2 className="no__movie">Sorry, No movies found</h2>;
   }
 
   const diplaySearch = value.map((movie) => {
