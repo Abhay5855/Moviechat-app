@@ -1,7 +1,10 @@
 import React, { createContext, useContext } from "react";
 
+
+const useAuthContext = createContext();
+
 export const useAuthContextProvider = ({ children }) => {
-  const useAuthContext = createContext();
+  
   return (
     <div>
       <useAuthContext.Provider value={{ id: 1 }}>
