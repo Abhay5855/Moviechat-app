@@ -22,7 +22,6 @@ const Search = () => {
           axios
           .get(SearchURL + searchMovie)
           .then((response) => {
-            // console.log(response.data.results);
             setFetchedMovie(response && response.data && response.data.results ?  response.data.results : '');
             setLoading(false);
             
