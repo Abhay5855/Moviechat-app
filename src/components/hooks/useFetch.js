@@ -22,6 +22,7 @@ export const useFetch = (url) => {
 
             setMovies(() => response && response.data && response.data.results ? response.data.results : '');
             // console.log(response.data.results);
+            setIsLoading(false)
 
           })
           .catch((err) => {
@@ -40,7 +41,7 @@ export const useFetch = (url) => {
           return () => movies;
 
 
-     }, [isLoading , error, url]);
+     }, [isLoading , error, url, movies]);
 
      
      
