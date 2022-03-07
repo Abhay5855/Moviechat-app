@@ -5,7 +5,7 @@ import { db } from "../../firebase/firebase";
 import { query, onSnapshot } from "firebase/firestore";
 
 
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp, doc, deleteDoc } from "firebase/firestore";
 
 const Movie = ({ title, trending }) => {
   const [movieId, setMovieId] = useState([]);
@@ -54,9 +54,13 @@ const Movie = ({ title, trending }) => {
     }
 
     getWatchLater();
-  }, []);
+
+    return () => movies
+  }, [movies]);
 
 
+  
+  
 
   // Display the movies
 
@@ -74,7 +78,7 @@ const Movie = ({ title, trending }) => {
             <p className="movie__title">{movie.title || movie.original_name}</p>
 
             {
-            !movieId.find((item) => item.data.id == movie.id) ? (
+            !movieId.find((item) => item.data.id === movie.id) ? (
               <span
                 className="watchlist"
                 onClick={() => handleFavourite(movie)}
@@ -83,14 +87,12 @@ const Movie = ({ title, trending }) => {
                 Add to Watchlist
               </span>
             ) : (
-              <span className="delete">
-                <i class="fas fa-trash"></i> Remove from watchlist
+              <span className="delete" >
+                <i class="fas fa-check"></i>Added to Watchlist
               </span>
             )}
 
-            <p className="watchlist">
-              <i class="fab fa-youtube"></i> Watch Trailer
-            </p>
+           
           </div>
 
       
