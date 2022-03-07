@@ -7,6 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 
+
 const useAuthContext = createContext();
 
 export const UseAuthContextProvider = ({ children }) => {
@@ -15,7 +16,7 @@ export const UseAuthContextProvider = ({ children }) => {
   // state to set the user
   const [user , setUser] = useState(null);
 
-
+    
 
   //Function to handle google signin
   const GoogleSignIn = () => {
@@ -25,10 +26,14 @@ export const UseAuthContextProvider = ({ children }) => {
   };
 
   //google signuout
+ 
   const GoogleSignOut = () => {
 
         signOut(auth).then(() => {
-
+            
+          localStorage.removeItem('user')
+            setUser(null);
+            
              
         })
         .catch((err) => {
@@ -46,11 +51,13 @@ export const UseAuthContextProvider = ({ children }) => {
         setUser(null);
       }
     });
-  }, []);
+
+    return () => user;
+  }, [user]);
 
   return (
     <div>
-      <useAuthContext.Provider value={{user, GoogleSignOut, GoogleSignIn }}>
+      <useAuthContext.Provider value={{user, GoogleSignOut, GoogleSignIn , setUser}}>
         {children}
       </useAuthContext.Provider>
     </div>
