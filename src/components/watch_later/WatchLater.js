@@ -31,7 +31,7 @@ const WatchLater = () => {
     getWatchLater();
 
     return () => watchLater;
-  }, []);
+  }, [watchLater]);
 
   //delete from the watchlist
   const handleRemove = async (id) => {
