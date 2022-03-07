@@ -5,14 +5,14 @@ import { db } from "../../firebase/firebase";
 import { query, onSnapshot } from "firebase/firestore";
 
 
-import { addDoc, collection, serverTimestamp, doc, deleteDoc } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp} from "firebase/firestore";
 
 const Movie = ({ title, trending }) => {
   const [movieId, setMovieId] = useState([]);
 
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
 
-  const { isLoading, error, movies } = useFetch(`${trending}`);
+  const {movies } = useFetch(`${trending}`);
 
   // Function to add the watch later movies
   const handleFavourite = async (movie) => {
@@ -64,10 +64,10 @@ const Movie = ({ title, trending }) => {
 
   // Display the movies
 
-  const displayMovies = movies.map((movie) => {
+  const displayMovies = movies.map((movie, idx) => {
     return (
       <>
-        <div className="movie__container" key={movie.vote_count}>
+        <div className="movie__container" key={idx}>
           <img
             src={`${BASE_URL}${movie.backdrop_path}`}
             alt={`${movie.original_name}`}
