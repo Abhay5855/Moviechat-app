@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const Search = () => {
   const [searchMovie, setSearchMovie] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [fetchedMovie , setFetchedMovie] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  const [fetchedMovie, setFetchedMovie] = useState([]);
 
   // Using the input ref
   const inputRef = useRef();
@@ -15,41 +15,29 @@ const Search = () => {
     "https://api.themoviedb.org/3/search/movie?api_key=d97b3e0257a2c71f178ef69c4ca4f27c&query=";
 
   useEffect(() => {
-       if(searchMovie !== ""){
-
-        const unsubscribe = setTimeout(() => {
-
-          axios
+    if (searchMovie !== "") {
+      const unsubscribe = setTimeout(() => {
+        axios
           .get(SearchURL + searchMovie)
           .then((response) => {
-            setFetchedMovie(response && response.data && response.data.results ?  response.data.results : '');
-            setLoading(false);
-            
+            setFetchedMovie(
+              response && response.data && response.data.results
+                ? response.data.results
+                : ""
+            );
+            // setLoading(false);
           })
-  
+
           .catch((err) => {
             console.log(err);
           });
-           
-  
-        }, 500);
+      }, 500);
 
-        return () => clearTimeout(unsubscribe);
+      return () => clearTimeout(unsubscribe);
+    }
 
-       }
-
-      
-
-       setSearchMovie("");
-          
-
-     
-  }, [searchMovie , inputRef]);
-
-  
-
-
-  
+    setSearchMovie("");
+  }, [searchMovie, inputRef]);
 
   return (
     <>
@@ -62,13 +50,14 @@ const Search = () => {
           onChange={(e) => setSearchMovie(e.target.value)}
         />
         <Link
-          to='/search'
+          to="/search"
           state={{
-              value : fetchedMovie,
-              
+            value: fetchedMovie,
           }}
         >
-          <button className="search__btn" onClick={() => setSearchMovie("")}>Search</button>
+          <button className="search__btn" onClick={() => setSearchMovie("")}>
+            Search
+          </button>
         </Link>
       </div>
     </>
