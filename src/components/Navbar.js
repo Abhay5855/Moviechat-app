@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 import { useAuth } from "./hooks/useAuth";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, GoogleSignOut} = useAuth();
 
-  console.log(user.photoURL);
+
+
   return (
     <nav>
       <ul>
@@ -36,6 +37,7 @@ const Navbar = () => {
               src={user.photoURL}
               alt="logo"
               className="avatar"
+              onClick={GoogleSignOut}
             />
           </div>
         </li>
