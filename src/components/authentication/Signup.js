@@ -7,7 +7,7 @@ import {useNavigate } from "react-router-dom";
 
 
 const Signup = () => {
-  const { GoogleSignIn , user } = useAuth();
+  const { GoogleSignIn} = useAuth();
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -15,10 +15,10 @@ const Signup = () => {
 
     try {
       await GoogleSignIn();
-      const profile = {
-          photo : user.photoURL,
-      }
-      localStorage.setItem('user', JSON.stringify(profile))
+      // const profile = {
+      //     photo : user.photoURL,
+      // }
+      // localStorage.setItem('user', JSON.stringify(profile))
     } catch (err) {
       console.log(console.log(err));
     }
