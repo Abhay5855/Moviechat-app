@@ -46,6 +46,7 @@ export const UseAuthContextProvider = ({ children }) => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+
       } else {
         setUser(null);
       }
