@@ -5,6 +5,7 @@ import Container from "../container/Container";
 import Movie from "../movie_list/Movie";
 import Navbar from "../Navbar";
 import Search from "../searchbar/Search";
+import SearchPage from "../searchPage/SearchPage";
 import WatchLater from "../watch_later/WatchLater";
 
 const MainApp = () => {
@@ -20,7 +21,7 @@ const MainApp = () => {
 
           <Route path="/watch-later" element={<WatchLater />} />
 
-          <Route path="/search" element={<Search />} />
+          <Route path="/search" element={<SearchPage/>} />
         </Routes>
       </BrowserRouter>
     </div>
