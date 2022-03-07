@@ -2,12 +2,12 @@ import React from "react";
 import "./signup.css";
 import GoogleButton from "react-google-button";
 import { useAuth } from "../hooks/useAuth";
-import { Navigate, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 
 
 const Signup = () => {
-  const { GoogleSignIn } = useAuth();
+  const { GoogleSignIn , user } = useAuth();
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -15,6 +15,10 @@ const Signup = () => {
 
     try {
       await GoogleSignIn();
+      const profile = {
+          photo : user.photoURL,
+      }
+      localStorage.setItem('user', JSON.stringify(profile))
     } catch (err) {
       console.log(console.log(err));
     }
